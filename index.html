@@ -11,7 +11,7 @@ body{
   margin:0;
   font-family: 'Arial', sans-serif;
   color:white;
-  overflow:hidden;
+  overflow-x:hidden;
   background:#0a0a0a;
 }
 
@@ -25,7 +25,7 @@ body{
   z-index:-1;
 }
 
-/* ========== NAV ========== */
+/* NAV */
 nav{
   text-align:center;
   padding:15px;
@@ -40,7 +40,7 @@ nav{
   text-shadow:0 0 8px violet;
 }
 
-/* ========== HEADER ========== */
+/* HEADER */
 header{
   text-align:center;
   padding:80px 20px;
@@ -74,7 +74,7 @@ header button:hover{
   box-shadow:0 0 20px #5865F2, 0 0 30px #ff00ff;
 }
 
-/* ========== SECCIONES ========== */
+/* SECCIONES */
 section{
   padding:50px 20px;
   text-align:center;
@@ -94,7 +94,7 @@ section h2{
   100%{text-shadow:0 0 4px #ff00ff, 0 0 8px #4b0082;}
 }
 
-/* ========== LOGOS ========== */
+/* LOGOS */
 .logos{
   display:flex;
   flex-wrap:wrap;
@@ -118,7 +118,7 @@ section h2{
   box-shadow:0 0 30px violet,0 0 50px #ff00ff;
 }
 
-/* ========== CARDS ========== */
+/* CARDS */
 .cards{
   display:flex;
   flex-wrap:wrap;
@@ -197,7 +197,7 @@ section h2{
   opacity:1;
 }
 
-/* ========== BOTONES ========== */
+/* BOTONES */
 button{
   background:violet;
   border:none;
@@ -262,9 +262,15 @@ footer{
 <section>
 <h2>🎮 JUEGOS OFICIALES</h2>
 <div class="logos">
-  <img src="cs2.png" alt="Counter Strike 2" title="Counter Strike 2">
-  <img src="valorant.png" alt="Valorant" title="Valorant">
-  <img src="fortnite.png" alt="Fortnite" title="Fortnite">
+  <a href="https://www.counter-strike.net/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Counter-Strike_2_Logo.png" alt="Counter Strike 2" title="Counter Strike 2">
+  </a>
+  <a href="https://playvalorant.com/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Valorant_logo.png" alt="Valorant" title="Valorant">
+  </a>
+  <a href="https://www.epicgames.com/fortnite/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/FortniteLogo.svg" alt="Fortnite" title="Fortnite">
+  </a>
 </div>
 </section>
 
@@ -291,14 +297,14 @@ footer{
 <div class="cards">
   <div class="card">
     <div class="sin-stock">SIN STOCK</div>
-    <img src="merch.png" alt="Remera Phantom">
+    <img src="https://i.imgur.com/3z4JzqX.png" alt="Remera Phantom">
     <p>Remeras Phantom</p>
     <div class="precio">$69.000</div>
     <div class="card-info">Próximamente nuevas tallas disponibles</div>
   </div>
   <div class="card">
     <div class="sin-stock">SIN STOCK</div>
-    <img src="merch.png" alt="Buzo Phantom">
+    <img src="https://i.imgur.com/3z4JzqX.png" alt="Buzo Phantom">
     <p>Buzo Phantom</p>
     <div class="precio">$69.000</div>
     <div class="card-info">Edición limitada</div>
