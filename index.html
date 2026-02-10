@@ -6,15 +6,24 @@
 <title>PHANTOM ESPORTS</title>
 
 <style>
-/* GENERAL */
+/* ========== FONDO ANIMADO ========== */
 body{
   margin:0;
   font-family: 'Arial', sans-serif;
-  background:linear-gradient(180deg, #0a0a0a, #000000);
   color:white;
   overflow-x:hidden;
+  background: linear-gradient(-45deg, #1a1a1a, #4b0082, #ff00ff, #0a0a0a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
 
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ========== NAV ========== */
 nav{
   text-align:center;
   padding:15px;
@@ -28,7 +37,7 @@ nav{
   z-index:100;
 }
 
-/* HEADER */
+/* ========== HEADER ========== */
 header{
   text-align:center;
   padding:80px 20px;
@@ -60,7 +69,7 @@ header button:hover{
   box-shadow:0 0 20px #5865F2;
 }
 
-/* SECCIONES */
+/* ========== SECCIONES ========== */
 section{
   padding:50px 20px;
   text-align:center;
@@ -72,7 +81,7 @@ section h2{
   color:violet;
 }
 
-/* LOGOS */
+/* ========== LOGOS ========== */
 .logos{
   display:flex;
   flex-wrap:wrap;
@@ -96,7 +105,7 @@ section h2{
   box-shadow:0 0 25px violet,0 0 40px purple;
 }
 
-/* CARDS */
+/* ========== CARDS ========== */
 .cards{
   display:flex;
   flex-wrap:wrap;
@@ -172,7 +181,7 @@ section h2{
   opacity:1;
 }
 
-/* BOTONES Y FORMULARIO */
+/* ========== BOTONES Y FORMULARIO ========== */
 button{
   background:violet;
   border:none;
@@ -202,14 +211,14 @@ input{
   background:#5865F2;
 }
 
-/* FOOTER */
+/* ========== FOOTER ========== */
 footer{
   text-align:center;
   padding:25px;
   color:gray;
 }
 
-/* RESPONSIVE */
+/* ========== RESPONSIVE ========== */
 @media(max-width:768px){
   .cards{
     flex-direction:column;
@@ -226,7 +235,6 @@ footer{
 <header>
 <h1>PHANTOM ESPORTS</h1>
 <p>Equipo competitivo argentino</p>
-<!-- BOTÓN CON TU LINK DE DISCORD -->
 <a href="https://discord.gg/4eXJtq8D39" target="_blank">
   <button class="discord">UNIRSE AL DISCORD</button>
 </a>
@@ -236,13 +244,13 @@ footer{
 <h2>🎮 JUEGOS OFICIALES</h2>
 <div class="logos">
   <a href="https://www.counter-strike.net/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Counter-Strike_2_Logo.png" title="Counter Strike 2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Counter-Strike_Global_Offensive.svg" title="Counter Strike 2" alt="Counter Strike">
   </a>
   <a href="https://playvalorant.com/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Valorant_logo.png" title="Valorant">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Valorant_icon.svg" title="Valorant" alt="Valorant">
   </a>
   <a href="https://www.epicgames.com/fortnite/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/FortniteLogo.svg" title="Fortnite">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/FortniteLogo.svg" title="Fortnite" alt="Fortnite">
   </a>
 </div>
 </section>
@@ -250,7 +258,7 @@ footer{
 <section>
 <h2>🎮 ROSTER</h2>
 <div class="cards">
-  <a href="https://www.youtube.com/@TOXA_FN" target="_blank" class="card">
+  <a href="https://www.youtube.com/channel/UCVlfHN-RkDcXmafwplFwkCg" target="_blank" class="card">
     <div class="player">PHT // TOXA_FN</div>
     <div class="card-info">Jugador profesional de Valorant y CS2</div>
   </a>
@@ -302,6 +310,7 @@ footer{
 <section>
 <h2>🔥 RECLUTAMIENTO ABIERTO</h2>
 <p>Jugadores reclutados: <span id="contador">12</span></p>
+<p>📢 Envía tus clips para entrar al clan por Discord usando el botón de arriba.</p>
 
 <form onsubmit="enviarFormulario(event)">
 <input type="file" accept="video/*" required><br>
@@ -318,12 +327,11 @@ footer{
 function enviarFormulario(e){
   e.preventDefault();
   document.getElementById("mensaje").innerText=
-    "✅ Clip recibido. Te contactaremos pronto.";
+    "✅ Clip recibido. Te contactaremos pronto por Discord.";
   let num=document.getElementById("contador");
   num.innerText=parseInt(num.innerText)+1;
 }
 
-// Opcional: efecto al hacer click en logos
 document.querySelectorAll('.logos img').forEach(img=>{
   img.addEventListener('click', ()=> alert('Juego oficial: '+img.title));
 });
