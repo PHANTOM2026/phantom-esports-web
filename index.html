@@ -6,21 +6,23 @@
 <title>PHANTOM ESPORTS</title>
 
 <style>
-/* ========== FONDO ANIMADO ========== */
+/* ========== FONDO CON PARTICULAS ========== */
 body{
   margin:0;
   font-family: 'Arial', sans-serif;
   color:white;
-  overflow-x:hidden;
-  background: linear-gradient(-45deg, #1a1a1a, #4b0082, #ff00ff, #0a0a0a);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  overflow:hidden;
+  background:#0a0a0a;
 }
 
-@keyframes gradientBG{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+/* PARTICULAS */
+#particles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
 }
 
 /* ========== NAV ========== */
@@ -35,23 +37,26 @@ nav{
   position:sticky;
   top:0;
   z-index:100;
+  text-shadow:0 0 8px violet;
 }
 
 /* ========== HEADER ========== */
 header{
   text-align:center;
   padding:80px 20px;
-  animation:fade 2s;
-}
-
-@keyframes fade{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;}
 }
 
 h1{
   font-size:60px;
   color:violet;
+  text-shadow: 0 0 8px #ff00ff, 0 0 16px #4b0082;
+  animation: neonTitle 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonTitle{
+  0%{text-shadow:0 0 6px #ff00ff, 0 0 12px #4b0082;}
+  50%{text-shadow:0 0 12px #ff00ff, 0 0 24px #4b0082;}
+  100%{text-shadow:0 0 6px #ff00ff, 0 0 12px #4b0082;}
 }
 
 header p{
@@ -65,8 +70,8 @@ header button{
 }
 
 header button:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 20px #5865F2;
+  transform:scale(1.1);
+  box-shadow:0 0 20px #5865F2, 0 0 30px #ff00ff;
 }
 
 /* ========== SECCIONES ========== */
@@ -79,6 +84,14 @@ section h2{
   font-size:32px;
   margin-bottom:30px;
   color:violet;
+  text-shadow: 0 0 6px #ff00ff, 0 0 12px #4b0082;
+  animation: neonSection 2s ease-in-out infinite alternate;
+}
+
+@keyframes neonSection{
+  0%{text-shadow:0 0 4px #ff00ff, 0 0 8px #4b0082;}
+  50%{text-shadow:0 0 12px #ff00ff, 0 0 20px #4b0082;}
+  100%{text-shadow:0 0 4px #ff00ff, 0 0 8px #4b0082;}
 }
 
 /* ========== LOGOS ========== */
@@ -96,13 +109,13 @@ section h2{
   padding:12px;
   border-radius:12px;
   box-shadow:0 0 15px purple;
-  transition:0.3s;
+  transition:0.4s;
   cursor:pointer;
 }
 
 .logos img:hover{
-  transform:scale(1.2);
-  box-shadow:0 0 25px violet,0 0 40px purple;
+  transform:scale(1.3);
+  box-shadow:0 0 30px violet,0 0 50px #ff00ff;
 }
 
 /* ========== CARDS ========== */
@@ -128,8 +141,8 @@ section h2{
 }
 
 .card:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 25px violet,0 0 40px purple;
+  transform:scale(1.1);
+  box-shadow:0 0 35px violet,0 0 50px #ff00ff;
 }
 
 .card img{
@@ -151,6 +164,7 @@ section h2{
   padding:10px;
   font-weight:bold;
   border-radius:6px;
+  text-shadow:0 0 4px #000;
 }
 
 .precio{
@@ -164,6 +178,7 @@ section h2{
   color:violet;
   font-size:20px;
   margin-bottom:10px;
+  text-shadow:0 0 6px #ff00ff;
 }
 
 .card-info{
@@ -171,17 +186,18 @@ section h2{
   transition:0.3s;
   position:absolute;
   bottom:0;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.85);
   width:100%;
   padding:10px;
   border-radius:0 0 18px 18px;
+  text-shadow:0 0 4px #000;
 }
 
 .card:hover .card-info{
   opacity:1;
 }
 
-/* ========== BOTONES Y FORMULARIO ========== */
+/* ========== BOTONES ========== */
 button{
   background:violet;
   border:none;
@@ -191,11 +207,12 @@ button{
   cursor:pointer;
   margin-top:10px;
   transition:0.3s;
+  text-shadow:0 0 4px #000;
 }
 
 button:hover{
   transform:scale(1.05);
-  box-shadow:0 0 20px violet;
+  box-shadow:0 0 25px violet,0 0 40px #ff00ff;
 }
 
 input{
@@ -211,14 +228,13 @@ input{
   background:#5865F2;
 }
 
-/* ========== FOOTER ========== */
 footer{
   text-align:center;
   padding:25px;
   color:gray;
+  text-shadow:0 0 4px #000;
 }
 
-/* ========== RESPONSIVE ========== */
 @media(max-width:768px){
   .cards{
     flex-direction:column;
@@ -229,6 +245,9 @@ footer{
 </head>
 
 <body>
+
+<!-- PARTICULAS -->
+<canvas id="particles"></canvas>
 
 <nav>👻 PHANTOM ESPORTS</nav>
 
@@ -243,15 +262,9 @@ footer{
 <section>
 <h2>🎮 JUEGOS OFICIALES</h2>
 <div class="logos">
-  <a href="https://www.counter-strike.net/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Counter-Strike_Global_Offensive.svg" title="Counter Strike 2" alt="Counter Strike">
-  </a>
-  <a href="https://playvalorant.com/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Valorant_icon.svg" title="Valorant" alt="Valorant">
-  </a>
-  <a href="https://www.epicgames.com/fortnite/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/FortniteLogo.svg" title="Fortnite" alt="Fortnite">
-  </a>
+  <img src="cs2.png" alt="Counter Strike 2" title="Counter Strike 2">
+  <img src="valorant.png" alt="Valorant" title="Valorant">
+  <img src="fortnite.png" alt="Fortnite" title="Fortnite">
 </div>
 </section>
 
@@ -276,34 +289,20 @@ footer{
 <section>
 <h2>👕 MERCH OFICIAL</h2>
 <div class="cards">
-  <a href="https://tu-tienda.com/remera-phantom" target="_blank" class="card">
+  <div class="card">
     <div class="sin-stock">SIN STOCK</div>
     <img src="merch.png" alt="Remera Phantom">
     <p>Remeras Phantom</p>
     <div class="precio">$69.000</div>
     <div class="card-info">Próximamente nuevas tallas disponibles</div>
-  </a>
-  <a href="https://tu-tienda.com/buzo-phantom" target="_blank" class="card">
+  </div>
+  <div class="card">
     <div class="sin-stock">SIN STOCK</div>
     <img src="merch.png" alt="Buzo Phantom">
     <p>Buzo Phantom</p>
     <div class="precio">$69.000</div>
     <div class="card-info">Edición limitada</div>
-  </a>
-  <a href="https://tu-tienda.com/teclado-phantom" target="_blank" class="card">
-    <div class="sin-stock">SIN STOCK</div>
-    <img src="merch.png" alt="Teclado Phantom">
-    <p>Teclado Phantom</p>
-    <div class="precio">$69.000</div>
-    <div class="card-info">Próximamente nuevas unidades</div>
-  </a>
-  <a href="https://tu-tienda.com/mouse-phantom" target="_blank" class="card">
-    <div class="sin-stock">SIN STOCK</div>
-    <img src="merch.png" alt="Mouse Phantom">
-    <p>Mouse Phantom</p>
-    <div class="precio">$69.000</div>
-    <div class="card-info">Próximamente nuevas unidades</div>
-  </a>
+  </div>
 </div>
 </section>
 
@@ -324,6 +323,7 @@ footer{
 <footer>PHANTOM ESPORTS © 2026</footer>
 
 <script>
+/* FORMULARIO */
 function enviarFormulario(e){
   e.preventDefault();
   document.getElementById("mensaje").innerText=
@@ -332,9 +332,58 @@ function enviarFormulario(e){
   num.innerText=parseInt(num.innerText)+1;
 }
 
-document.querySelectorAll('.logos img').forEach(img=>{
-  img.addEventListener('click', ()=> alert('Juego oficial: '+img.title));
+/* PARTICULAS */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+const colors = ['#ff00ff','#4b0082','#9400d3'];
+
+class Particle{
+  constructor(){
+    this.x = Math.random()*canvas.width;
+    this.y = Math.random()*canvas.height;
+    this.size = Math.random()*3+1;
+    this.speedX = Math.random()*1-0.5;
+    this.speedY = Math.random()*1-0.5;
+    this.color = colors[Math.floor(Math.random()*colors.length)];
+  }
+  update(){
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if(this.x>canvas.width) this.x=0;
+    if(this.x<0) this.x=canvas.width;
+    if(this.y>canvas.height) this.y=0;
+    if(this.y<0) this.y=canvas.height;
+  }
+  draw(){
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fill();
+  }
+}
+
+function init(){
+  particlesArray=[];
+  for(let i=0;i<100;i++){
+    particlesArray.push(new Particle());
+  }
+}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particlesArray.forEach(p=>{p.update(); p.draw();});
+  requestAnimationFrame(animate);
+}
+window.addEventListener('resize',()=>{
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
 });
+init();
+animate();
 </script>
 
 </body>
