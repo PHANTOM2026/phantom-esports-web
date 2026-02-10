@@ -6,134 +6,215 @@
 <title>PHANTOM ESPORTS</title>
 
 <style>
+/* GENERAL */
 body{
-margin:0;
-font-family:Arial;
-background:linear-gradient(black,#0a0a0a);
-color:white;
-overflow-x:hidden;
+  margin:0;
+  font-family: 'Arial', sans-serif;
+  background:linear-gradient(180deg, #0a0a0a, #000000);
+  color:white;
+  overflow-x:hidden;
 }
 
 nav{
-text-align:center;
-padding:15px;
-font-size:26px;
-color:violet;
-font-weight:bold;
-background:black;
-box-shadow:0 0 15px violet;
+  text-align:center;
+  padding:15px;
+  font-size:26px;
+  color:violet;
+  font-weight:bold;
+  background:black;
+  box-shadow:0 0 15px violet;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
 
+/* HEADER */
 header{
-text-align:center;
-padding:80px 20px;
-animation:fade 2s;
+  text-align:center;
+  padding:80px 20px;
+  animation:fade 2s;
 }
 
 @keyframes fade{
-from{opacity:0;transform:translateY(40px);}
-to{opacity:1;}
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;}
 }
 
 h1{
-font-size:60px;
-color:violet;
+  font-size:60px;
+  color:violet;
 }
 
+header p{
+  font-size:20px;
+  color:lightgray;
+  margin:10px 0 20px;
+}
+
+header button{
+  transition:0.3s;
+}
+
+header button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #5865F2;
+}
+
+/* SECCIONES */
 section{
-padding:50px 20px;
-text-align:center;
+  padding:50px 20px;
+  text-align:center;
 }
 
-.cards{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
+section h2{
+  font-size:32px;
+  margin-bottom:30px;
+  color:violet;
 }
 
-.card{
-background:#111;
-padding:20px;
-border-radius:18px;
-width:260px;
-position:relative;
-transition:0.4s;
-box-shadow:0 0 10px purple;
-}
-
-.card:hover{
-transform:scale(1.08);
-box-shadow:0 0 25px violet,0 0 40px purple;
-}
-
-.card img{
-width:100%;
-border-radius:12px;
-transition:0.4s;
-}
-
-.card:hover img{
-transform:scale(1.1);
-}
-
-.sin-stock{
-position:absolute;
-top:35%;
-left:50%;
-transform:translate(-50%,-50%);
-background:red;
-padding:10px;
-font-weight:bold;
-border-radius:6px;
-}
-
-.precio{
-color:violet;
-font-weight:bold;
-font-size:18px;
-margin-top:10px;
-}
-
-.player{
-color:violet;
-font-size:20px;
+/* LOGOS */
+.logos{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
 }
 
 .logos img{
-width:90px;
-margin:15px;
-background:#111;
-padding:12px;
-border-radius:12px;
-box-shadow:0 0 15px purple;
+  width:90px;
+  margin:15px;
+  background:#111;
+  padding:12px;
+  border-radius:12px;
+  box-shadow:0 0 15px purple;
+  transition:0.3s;
+  cursor:pointer;
 }
 
+.logos img:hover{
+  transform:scale(1.2);
+  box-shadow:0 0 25px violet,0 0 40px purple;
+}
+
+/* CARDS */
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+}
+
+.card{
+  background:#111;
+  padding:20px;
+  border-radius:18px;
+  width:260px;
+  position:relative;
+  transition:0.4s;
+  box-shadow:0 0 10px purple;
+  cursor:pointer;
+  overflow:hidden;
+  text-decoration:none;
+  color:white;
+}
+
+.card:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 25px violet,0 0 40px purple;
+}
+
+.card img{
+  width:100%;
+  border-radius:12px;
+  transition:0.4s;
+}
+
+.card:hover img{
+  transform:scale(1.1);
+}
+
+.sin-stock{
+  position:absolute;
+  top:35%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:red;
+  padding:10px;
+  font-weight:bold;
+  border-radius:6px;
+}
+
+.precio{
+  color:violet;
+  font-weight:bold;
+  font-size:18px;
+  margin-top:10px;
+}
+
+.player{
+  color:violet;
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.card-info{
+  opacity:0;
+  transition:0.3s;
+  position:absolute;
+  bottom:0;
+  background:rgba(0,0,0,0.8);
+  width:100%;
+  padding:10px;
+  border-radius:0 0 18px 18px;
+}
+
+.card:hover .card-info{
+  opacity:1;
+}
+
+/* BOTONES Y FORMULARIO */
 button{
-background:violet;
-border:none;
-padding:14px 24px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-margin-top:10px;
+  background:violet;
+  border:none;
+  padding:14px 24px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px violet;
 }
 
 input{
-margin:10px;
-padding:10px;
-border-radius:6px;
-border:none;
+  margin:10px;
+  padding:10px;
+  border-radius:6px;
+  border:none;
+  width:80%;
+  max-width:300px;
 }
 
 .discord{
-background:#5865F2;
+  background:#5865F2;
 }
 
+/* FOOTER */
 footer{
-text-align:center;
-padding:25px;
-color:gray;
+  text-align:center;
+  padding:25px;
+  color:gray;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .cards{
+    flex-direction:column;
+    align-items:center;
+  }
 }
 </style>
 </head>
@@ -145,59 +226,76 @@ color:gray;
 <header>
 <h1>PHANTOM ESPORTS</h1>
 <p>Equipo competitivo argentino</p>
-<a href="#"><button class="discord">UNIRSE AL DISCORD</button></a>
+<!-- BOTÓN CON TU LINK DE DISCORD -->
+<a href="https://discord.gg/4eXJtq8D39" target="_blank">
+  <button class="discord">UNIRSE AL DISCORD</button>
+</a>
 </header>
 
 <section>
 <h2>🎮 JUEGOS OFICIALES</h2>
 <div class="logos">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Counter-Strike_2_Logo.png">
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Valorant_logo.png">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/FortniteLogo.svg">
+  <a href="https://www.counter-strike.net/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Counter-Strike_2_Logo.png" title="Counter Strike 2">
+  </a>
+  <a href="https://playvalorant.com/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Valorant_logo.png" title="Valorant">
+  </a>
+  <a href="https://www.epicgames.com/fortnite/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/FortniteLogo.svg" title="Fortnite">
+  </a>
 </div>
 </section>
 
 <section>
 <h2>🎮 ROSTER</h2>
 <div class="cards">
-<div class="card"><div class="player">PHT // TOXA_FN</div></div>
-<div class="card"><div class="player">PHT // SHADOW</div></div>
-<div class="card"><div class="player">PHT // VOID</div></div>
+  <a href="https://www.youtube.com/@TOXA_FN" target="_blank" class="card">
+    <div class="player">PHT // TOXA_FN</div>
+    <div class="card-info">Jugador profesional de Valorant y CS2</div>
+  </a>
+  <a href="https://www.youtube.com/@SHADOW" target="_blank" class="card">
+    <div class="player">PHT // SHADOW</div>
+    <div class="card-info">Jugador de Fortnite y contenido streaming</div>
+  </a>
+  <a href="https://www.youtube.com/@VOID" target="_blank" class="card">
+    <div class="player">PHT // VOID</div>
+    <div class="card-info">Jugador de CS2, especialista en estrategias</div>
+  </a>
 </div>
 </section>
 
 <section>
 <h2>👕 MERCH OFICIAL</h2>
 <div class="cards">
-
-<div class="card">
-<div class="sin-stock">SIN STOCK</div>
-<img src="merch.png">
-<p>Remeras Phantom</p>
-<div class="precio">$69.000</div>
-</div>
-
-<div class="card">
-<div class="sin-stock">SIN STOCK</div>
-<img src="merch.png">
-<p>Buzo Phantom</p>
-<div class="precio">$69.000</div>
-</div>
-
-<div class="card">
-<div class="sin-stock">SIN STOCK</div>
-<img src="merch.png">
-<p>Teclado Phantom</p>
-<div class="precio">$69.000</div>
-</div>
-
-<div class="card">
-<div class="sin-stock">SIN STOCK</div>
-<img src="merch.png">
-<p>Mouse Phantom</p>
-<div class="precio">$69.000</div>
-</div>
-
+  <a href="https://tu-tienda.com/remera-phantom" target="_blank" class="card">
+    <div class="sin-stock">SIN STOCK</div>
+    <img src="merch.png" alt="Remera Phantom">
+    <p>Remeras Phantom</p>
+    <div class="precio">$69.000</div>
+    <div class="card-info">Próximamente nuevas tallas disponibles</div>
+  </a>
+  <a href="https://tu-tienda.com/buzo-phantom" target="_blank" class="card">
+    <div class="sin-stock">SIN STOCK</div>
+    <img src="merch.png" alt="Buzo Phantom">
+    <p>Buzo Phantom</p>
+    <div class="precio">$69.000</div>
+    <div class="card-info">Edición limitada</div>
+  </a>
+  <a href="https://tu-tienda.com/teclado-phantom" target="_blank" class="card">
+    <div class="sin-stock">SIN STOCK</div>
+    <img src="merch.png" alt="Teclado Phantom">
+    <p>Teclado Phantom</p>
+    <div class="precio">$69.000</div>
+    <div class="card-info">Próximamente nuevas unidades</div>
+  </a>
+  <a href="https://tu-tienda.com/mouse-phantom" target="_blank" class="card">
+    <div class="sin-stock">SIN STOCK</div>
+    <img src="merch.png" alt="Mouse Phantom">
+    <p>Mouse Phantom</p>
+    <div class="precio">$69.000</div>
+    <div class="card-info">Próximamente nuevas unidades</div>
+  </a>
 </div>
 </section>
 
@@ -218,12 +316,17 @@ color:gray;
 
 <script>
 function enviarFormulario(e){
-e.preventDefault();
-document.getElementById("mensaje").innerText=
-"✅ Clip recibido. Te contactaremos pronto.";
-let num=document.getElementById("contador");
-num.innerText=parseInt(num.innerText)+1;
+  e.preventDefault();
+  document.getElementById("mensaje").innerText=
+    "✅ Clip recibido. Te contactaremos pronto.";
+  let num=document.getElementById("contador");
+  num.innerText=parseInt(num.innerText)+1;
 }
+
+// Opcional: efecto al hacer click en logos
+document.querySelectorAll('.logos img').forEach(img=>{
+  img.addEventListener('click', ()=> alert('Juego oficial: '+img.title));
+});
 </script>
 
 </body>
